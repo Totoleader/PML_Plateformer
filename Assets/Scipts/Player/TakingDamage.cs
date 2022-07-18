@@ -5,7 +5,7 @@ namespace Scipts.Player
     public class TakingDamage : MonoBehaviour
     {
         private Animator anim;
-
+        
        
 
         // Start is called before the first frame update

@@ -104,7 +104,7 @@ namespace Scipts.Player
 
         void AttackUpdate()
         {
-            if (Input.GetKeyDown(KeyCode.G) && Time.time > nextAttackAllowed)
+            if (Input.GetKeyDown(KeyCode.Alpha2) && Time.time > nextAttackAllowed)
             {
                 anim.SetInteger("State", (int)MovementState.attack1);
                 nextAttackAllowed = Time.time + attackOneCooldown;
