@@ -5,8 +5,7 @@ namespace Scipts.Player
     public class TakingDamage : MonoBehaviour
     {
         private Animator anim;
-        
-       
+
 
         // Start is called before the first frame update
         void Start()
@@ -17,7 +16,6 @@ namespace Scipts.Player
         // Update is called once per frame
         void Update()
         {
-        
         }
 
         private void OnCollisionEnter2D(Collision2D collision)

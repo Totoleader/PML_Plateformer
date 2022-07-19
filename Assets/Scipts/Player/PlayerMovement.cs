@@ -14,18 +14,15 @@ namespace Scipts.Player
         private Animator anim;
         private SpriteRenderer sprite;
 
-        [SerializeField] private float attackOneCooldown;
-        private float nextAttackAllowed;
-
 
         private enum MovementState
         {
             idle,
             running,
             jumping,
-            falling,
-            attack1
+            falling
         }
+
         MovementState state;
 
         // Start is called before the first frame update
@@ -35,9 +32,6 @@ namespace Scipts.Player
             anim = GetComponent<Animator>();
             sprite = GetComponent<SpriteRenderer>();
             coll = GetComponent<BoxCollider2D>();
-            
-            
-           
         }
 
         // Update is called once per frame
@@ -45,7 +39,6 @@ namespace Scipts.Player
         {
             MovementUpdate();
             AnimationUpdate();
-            AttackUpdate();
         }
 
         void MovementUpdate()
@@ -59,17 +52,15 @@ namespace Scipts.Player
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             }
-        } 
-        
-        private bool IsGrounded()
-        {
-            
-            return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f,jumpableGround);
         }
-        
-        void AnimationUpdate()
+
+        private bool IsGrounded() // checks if player is on the ground and can jump
         {
-            
+            return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
+        }
+
+        void AnimationUpdate() //Updates movement animations
+        {
             //check if player is moving right
 
             if (leftRightInput > 0) //set animation to running right
@@ -88,8 +79,8 @@ namespace Scipts.Player
             {
                 state = MovementState.idle;
             }
-            
-            
+
+
             if (rb.velocity.y > .01f)
             {
                 state = MovementState.jumping;
@@ -101,18 +92,5 @@ namespace Scipts.Player
 
             anim.SetInteger("State", (int)state);
         }
-
-        void AttackUpdate()
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha2) && Time.time > nextAttackAllowed)
-            {
-                anim.SetInteger("State", (int)MovementState.attack1);
-                nextAttackAllowed = Time.time + attackOneCooldown;
-            }
-
-            
-        }
     }
-    
-     
 }

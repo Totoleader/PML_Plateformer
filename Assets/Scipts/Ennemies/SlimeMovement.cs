@@ -9,6 +9,7 @@ namespace Scipts.Ennemies
         [SerializeField] private GameObject Player;
 
         [SerializeField] private float speed;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -18,27 +19,25 @@ namespace Scipts.Ennemies
         // Update is called once per frame
         void Update()
         {
-          
-        movement();
+            Movement();
         }
 
-        private void movement()
+        private void Movement()
         {
-            var transformPosition = transform.position;
-            
-            if (Math.Abs(Player.transform.position.x - transformPosition.x) < 9)
+            var slimePosition = transform.position.x;
+            var playerPosition = Player.transform.position.x;
+
+
+            if (Math.Abs(playerPosition - slimePosition) < 9) //enemy starts moving when at a certain distance of player
             {
-                
-            
-                if (Player.transform.position.x > transformPosition.x)
+                if (playerPosition > slimePosition) //moves right if player is to the right
                 {
                     rb.velocity = Vector2.right * speed;
                 }
-                else if (Player.transform.position.x < transformPosition.x)
+                else if (playerPosition < slimePosition) //moves left if player is to the left
                 {
                     rb.velocity = Vector2.left * speed;
                 }
-            
             }
         }
     }
