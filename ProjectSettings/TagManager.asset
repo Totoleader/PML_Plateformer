@@ -6,6 +6,8 @@ TagManager:
   tags:
   - spike
   - ennemy
+  - heroAttack
+  - Ground
   layers:
   - Default
   - TransparentFX

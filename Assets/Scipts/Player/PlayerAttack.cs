@@ -29,20 +29,11 @@ namespace Scipts.Player
             AttackUpdate();
         }
 
-        private void OnTriggerEnter2D(Collider2D col) //when player hits an ennemy...
-        {
-            if (col.gameObject.CompareTag("ennemy"))
-            {
-                Debug.Log("Ennemy hit");
-            }
-        }
-
         void AttackUpdate()
         {
-            var hitBoxOffset = attackHitBox.offset;
-            hitBoxOffset = new Vector2(offsetX, hitBoxOffset.y);
+            var hitBoxOffset = attackHitBox.offset; //**put the 3 lines in the "if" below with attack input to make the hitbox not change direction during attack
+            hitBoxOffset = new Vector2(offsetX, hitBoxOffset.y);//changes the direction of the attack hitbox depending on the way the player is facing
             attackHitBox.offset = hitBoxOffset;
-
             if (playerSprite.flipX)
             {
                 hitBoxOffset = new Vector2(-hitBoxOffset.x, hitBoxOffset.y);
@@ -54,10 +45,7 @@ namespace Scipts.Player
             {
                 attackHitBox.enabled = true;
                 
-                
-                
-                
-                anim.SetTrigger("ennemyHit");
+                anim.SetTrigger("attackOne");   
                 nextAttackAllowed = Time.time + attackOneCooldown;
             }
 

@@ -33,6 +33,7 @@ namespace Scipts.Ennemies
                 if (playerPosition > slimePosition) //moves right if player is to the right
                 {
                     rb.velocity = Vector2.right * speed;
+                    
                 }
                 else if (playerPosition < slimePosition) //moves left if player is to the left
                 {
