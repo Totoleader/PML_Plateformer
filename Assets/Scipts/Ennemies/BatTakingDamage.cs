@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Scipts.Ennemies;
+using Scipts.Ennemies.TakingDamage;
 using UnityEngine;
 
-public class BatTakingDamage : MonoBehaviour
+public class BatTakingDamage : EnnemyTakingDamage
 {
     // Start is called before the first frame update
     void Start()
@@ -13,6 +15,5 @@ public class BatTakingDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 }

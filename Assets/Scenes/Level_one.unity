@@ -9418,6 +9418,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1953599311}
+    - target: {fileID: 7513323564116647888, guid: 803a61307ec814c88aaa2a86c9b115bf, type: 3}
+      propertyPath: aggroDistance
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7513323564116647889, guid: 803a61307ec814c88aaa2a86c9b115bf, type: 3}
       propertyPath: m_BodyType
       value: 0
@@ -9874,6 +9878,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f7d90e8e312448a3bc881f25b81462f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healtPoints: 0
+  knockbackForce: 0
+  ground:
+    serializedVersion: 2
+    m_Bits: 0
+  Player: {fileID: 0}
 --- !u!1 &1668528336
 GameObject:
   m_ObjectHideFlags: 0
@@ -11920,6 +11930,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1953599311}
+    - target: {fileID: 7513323564116647888, guid: 803a61307ec814c88aaa2a86c9b115bf, type: 3}
+      propertyPath: aggroDistance
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7513323564116647889, guid: 803a61307ec814c88aaa2a86c9b115bf, type: 3}
       propertyPath: m_BodyType
       value: 0

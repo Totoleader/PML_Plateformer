@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7513323564116647895}
   - component: {fileID: 7513323564116647888}
   - component: {fileID: 7513323564116647889}
-  - component: {fileID: 5222574505426719278}
+  - component: {fileID: 705647931801019929}
   m_Layer: 0
   m_Name: Slime
   m_TagString: ennemy
@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b835ed8fb6a446019b31a6cb2ac7fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aggroDistance: 9
   Player: {fileID: 0}
   speed: 2
 --- !u!50 &7513323564116647889
@@ -170,7 +171,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &5222574505426719278
+--- !u!114 &705647931801019929
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -179,7 +180,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2709603461017853170}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cc32c5df51884054b161694f642b409, type: 3}
+  m_Script: {fileID: 11500000, guid: 9facf5e7f108e4417869d9e47ccd4588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   healtPoints: 3

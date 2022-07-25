@@ -5,6 +5,7 @@ namespace Scipts.Ennemies
 {
     public class SlimeMovement : MonoBehaviour
     {
+        [SerializeField] private float aggroDistance;
         private Rigidbody2D rb;
         [SerializeField] private GameObject Player;
 
@@ -28,7 +29,7 @@ namespace Scipts.Ennemies
             var playerPosition = Player.transform.position.x;
 
 
-            if (Math.Abs(playerPosition - slimePosition) < 9) //enemy starts moving when at a certain distance of player
+            if (Math.Abs(playerPosition - slimePosition) < aggroDistance) //enemy starts moving when at a certain distance of player
             {
                 if (playerPosition > slimePosition) //moves right if player is to the right
                 {
