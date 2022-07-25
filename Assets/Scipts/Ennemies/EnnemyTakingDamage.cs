@@ -5,53 +5,32 @@ namespace Scipts.Ennemies
 {
     public class EnnemyTakingDamage : MonoBehaviour
     {
-        private SlimeMovement moveScript;
-        private Animator anim;
-        [SerializeField] private int healtPoints;
-        private Rigidbody2D rb;
-        private BoxCollider2D coll;
-        [SerializeField] private float knockbackForce;
-        [SerializeField] private LayerMask ground;
+        protected SlimeMovement moveScript;
+        protected Animator anim;
+        [SerializeField] protected int healtPoints;
+        protected Rigidbody2D rb;
+        protected BoxCollider2D coll;
+        [SerializeField] protected float knockbackForce;
+        [SerializeField] protected LayerMask ground;
 
-        [SerializeField] private GameObject Player;
-        private Vector2 playerEnnemyDistance;
+        [SerializeField] protected GameObject Player;
+        protected Vector2 playerEnnemyDistance;
 
         // Start is called before the first frame update
         void Start()
         {
-            rb = GetComponent<Rigidbody2D>();
-            anim = GetComponent<Animator>();
-            moveScript = GetComponent<SlimeMovement>();
-            coll = GetComponent<BoxCollider2D>();
+            
         }
 
         // Update is called once per frame
         void Update()
         {
-            if (rb.velocity.x == 0f && healtPoints > 0)
-            {
-                moveScript.enabled = true;
-            }
-
-            if (healtPoints == 0 && IsGrounded())
-            {
-                rb.bodyType = RigidbodyType2D.Static;
-                coll.enabled = false;
-            }
-           
-        }
-
-        private void OnTriggerEnter2D(Collider2D col) //when ennemy gets hit by player
-        {
-            if (col.gameObject.CompareTag("heroAttack"))
-            {
-                Damaged();
-                Knockback();
-            }
           
         }
 
-        private void Damaged() //when ennemy is hit
+        
+
+        protected void Damaged() //when ennemy is hit
         {
             healtPoints -= 1;
             anim.SetTrigger("damaged");
@@ -66,7 +45,7 @@ namespace Scipts.Ennemies
             
         }
 
-        private void Knockback() //the ennemy knockback after a hit
+        protected void Knockback() //the ennemy knockback after a hit
         {
             var playerPosition = Player.transform.position;
             var ennemyPosition = transform.position;
@@ -89,7 +68,7 @@ namespace Scipts.Ennemies
         }
         
         
-        private bool IsGrounded() // checks if player is on the ground and can jump
+        protected bool IsGrounded() // checks if player is on the ground and can jump
         {
             return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, ground);
         }
