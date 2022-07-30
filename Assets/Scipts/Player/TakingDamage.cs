@@ -54,6 +54,7 @@ namespace Scipts.Player
                 
                 life1.GetComponent<Animator>().SetTrigger("LostLife1");
                 
+
             }
             
             

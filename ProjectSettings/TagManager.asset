@@ -8,16 +8,17 @@ TagManager:
   - ennemy
   - heroAttack
   - Ground
+  - collectables
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - ennemies
   - Water
   - UI
   - Ground
   - Spike
-  - 
+  - collectibles
   - 
   - 
   - 
